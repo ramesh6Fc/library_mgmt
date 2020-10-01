@@ -12,6 +12,8 @@ require("dotenv").config({
 
 const app = express();
 
+app.use(bodyParser.json());
+
 const PORT = process.env.PORT || 3000;
 
 mongoose
@@ -41,3 +43,5 @@ app.use(async (req, res, next) => {
 app.use('/', routes); app.listen(PORT, () => {
   console.log('Server is listening on Port:', PORT)
 })
+
+module.exports = app; // for testing
