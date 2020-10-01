@@ -1,0 +1,950 @@
+{
+	"variables": [],
+	"info": {
+		"name": "LMS",
+		"_postman_id": "a681f734-821f-1285-2e5a-1b3bd80e93d4",
+		"description": "Simple library management system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User Account as user ",
+			"request": {
+				"url": "http://localhost:3000/signup",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fName",
+							"value": "Raja",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "lName",
+							"value": "Ram",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "email",
+							"value": "rajaram@abc.com",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "1234567890",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "role",
+							"value": "user",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Create new user account"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Account as Admin",
+			"request": {
+				"url": "http://localhost:3000/signup",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fName",
+							"value": "Mary",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "lName",
+							"value": "Linda",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "email",
+							"value": "lindam@abc.com",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "Abcdefgh",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Create new admin account"
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"url": "http://localhost:3000/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "rajaram@abc.com",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "1234567890",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Login User"
+			},
+			"response": []
+		},
+		{
+			"name": "Get users as a user",
+			"request": {
+				"url": "http://localhost:3000/users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTVkNmEzM2RhNTJiN2NmMGRmMmEiLCJpYXQiOjE2MDE1MjUyMDYsImV4cCI6MTYwMTYxMTYwNn0.pkDaBU3q3Man94km0XPGjKMjzIXNGt9AOIaAV9GoE-U",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"fname\": \"Malli\",\r\n        \"lname\":\"Maha\",\r\n        \"role\": \"user\",\r\n        \"email\": \"ab2@abc.com\",\r\n        \"password\":\"1234567890\"\r\n }"
+				},
+				"description": "Get all users details by user"
+			},
+			"response": []
+		},
+		{
+			"name": "Get users as a admin",
+			"request": {
+				"url": "http://localhost:3000/users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NjQ2N2U2OWVjZTE1ZjA1OTJlODkiLCJpYXQiOjE2MDE1Mjg5MzUsImV4cCI6MTYwMTYxNTMzNX0.W4S5TkCU6JorOMnd9U9qvkKpjrzedIQE1uLv7IgGeHE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"fname\": \"Malli\",\r\n        \"lname\":\"Maha\",\r\n        \"role\": \"user\",\r\n        \"email\": \"ab2@abc.com\",\r\n        \"password\":\"1234567890\"\r\n }"
+				},
+				"description": "Get all users details by admin"
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"url": "http://localhost:3000/user/5f755ecf9713b432807b6031",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NjQ2N2U2OWVjZTE1ZjA1OTJlODkiLCJpYXQiOjE2MDE1Mjg5MzUsImV4cCI6MTYwMTYxNTMzNX0.W4S5TkCU6JorOMnd9U9qvkKpjrzedIQE1uLv7IgGeHE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fName",
+							"value": "Siva",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "lName",
+							"value": "Ram",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "email",
+							"value": "rajaram@abc.com",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "role",
+							"value": "user",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "Siva45FG34#",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Update user details"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"url": "http://localhost:3000/user/5f755703a33da52b7cf0df2c",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Author",
+			"request": {
+				"url": "http://localhost:3000/author",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "Rakesh@abc.com",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Rakesh Boy",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Create new Author"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author",
+			"request": {
+				"url": "http://localhost:3000/author/5f755849777a3a33c8c8f638",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "book",
+							"value": "High Sky",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Megna",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Sun Groups",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Get Author Details"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authors ",
+			"request": {
+				"url": "http://localhost:3000/authors",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "book",
+							"value": "High Sky",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Megna",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Sun Groups",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "List Authors "
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author",
+			"request": {
+				"url": "http://localhost:3000/author/5f755a997a0d9925b0dfe6bc",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "sivakumar23@abc.com",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Rakesh Kumar",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Update author details"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author",
+			"request": {
+				"url": "http://localhost:3000/author/5f755849777a3a33c8c8f638",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Remove the Author details"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Publisher",
+			"request": {
+				"url": "http://localhost:3000/publisher",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "MoonMadana@abc.com",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Moon Groups",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Create new Publisher"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Publishers",
+			"request": {
+				"url": "http://localhost:3000/publishers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "book",
+							"value": "High Sky",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Megna",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Sun Groups",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "List Publishers "
+			},
+			"response": []
+		},
+		{
+			"name": "Get Publisher ",
+			"request": {
+				"url": "http://localhost:3000/publisher/5f755c229ae1811b84476452",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "book",
+							"value": "High Sky",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Megna",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Sun Groups",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Get Publisher Details"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Publisher",
+			"request": {
+				"url": "http://localhost:3000/publisher/5f755c229ae1811b84476452",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "sunG23@abc.com",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Sun Group",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Update publisher details"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Publisher",
+			"request": {
+				"url": "http://localhost:3000/publisher/5f755bfd7a0d9925b0dfe6bd",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Remove the Publisher details"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Book",
+			"request": {
+				"url": "http://localhost:3000/book",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NjQ2N2U2OWVjZTE1ZjA1OTJlODkiLCJpYXQiOjE2MDE1Mjg5MzUsImV4cCI6MTYwMTYxNTMzNX0.W4S5TkCU6JorOMnd9U9qvkKpjrzedIQE1uLv7IgGeHE",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "book",
+							"value": "Golden Flower",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Siva Raman",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Moon Groups",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "bookCategory",
+							"value": "Romanace",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Create new Book"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Books",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "Megna Madana",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "book",
+							"value": "Blue Sky",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "publisher",
+							"value": "Moon Groups",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "bookCategory",
+							"value": "Romanace",
+							"equals": true,
+							"description": "",
+							"disabled": true
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NjJiZGU2NWQ4ODE2OTgzMDA0NGYiLCJpYXQiOjE2MDE1Mjg1MDksImV4cCI6MTYwMTYxNDkwOX0.mDNzq_qHAJrVx88WuB4ML9Wgc75ntyUzRwVwyQCP_s4",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "book",
+							"value": "High Sky",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Megna",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Sun Groups",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "List Books\nNote: In params section, By checking the query params to serch the books. "
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book",
+			"request": {
+				"url": "http://localhost:3000/book/5f755cf39ae1811b84476453",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "book",
+							"value": "High Sky",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Megna",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Sun Groups",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Get Book"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book ",
+			"request": {
+				"url": "http://localhost:3000/book/5f755cf39ae1811b84476453",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "book",
+							"value": "Blue Sky",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Megna Madana",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "publisher",
+							"value": "Sun Groups_lite",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Modify the book details"
+			},
+			"response": []
+		},
+		{
+			"name": "Lend book",
+			"request": {
+				"url": "http://localhost:3000/lendBook/5f75605d47f6dd1d44dd4f4b",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NWVjZjk3MTNiNDMyODA3YjYwMzEiLCJpYXQiOjE2MDE1Mjc1MDMsImV4cCI6MTYwMTYxMzkwM30.7-9lMjXhogCs1EtpunCjyPwDTDQwrZ--ujbghihyJ9A",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "book",
+							"value": "Golder Flower",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "author",
+							"value": "Megna Madana",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						},
+						{
+							"key": "publisher",
+							"value": "Sun Groups_lite",
+							"type": "text",
+							"description": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "lend book by userId"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book ",
+			"request": {
+				"url": "http://localhost:3000/book/5f755d189ae1811b84476454",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Zjc1NTcwM2EzM2RhNTJiN2NmMGRmMmMiLCJpYXQiOjE2MDE1MjU1MDcsImV4cCI6MTYwMTYxMTkwN30.db46FdiBD7tGH-p1Qcw4873dptjkeHNsBk1amfW8YWM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Remove the book details"
+			},
+			"response": []
+		}
+	]
+}
