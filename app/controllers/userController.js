@@ -38,19 +38,19 @@ exports.login = async (req, res, next) => {
     try {
      const { email, password } = req.body;
      const user = await User.findOne({ email });
-     if (!user) return next(new Error('Email does not exist'));
+     if (!user) return res.status(401).json({ error: 'Email does not exist'});
      const validPassword = await validatePassword(password, user.password);
-     if (!validPassword) return next(new Error('Password is not correct'))
+     if (!validPassword)  return res.status(401).json({ error: 'Password is not correct'});
      const accessToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1d"
      });
      await User.findByIdAndUpdate(user._id, { accessToken })
      res.status(200).json({
-      data: { email: user.email, role: user.role },
+      data: { email: user.email, role: user.role, accessToken: accessToken },
       accessToken
      })
     } catch (error) {
-     next(error);
+      return res.status(401).json({ error:error});
     }
    }
 
@@ -107,8 +107,8 @@ exports.login = async (req, res, next) => {
    
    exports.updateUserLend = async (req, res, next) => {
     try {
-     const update = {$push: {books: {book: req.body.book, author:  req.body.author || null, publisher:  req.body.publisher || null, }}};req.body
-     const userId = req.params.userId || req.user._id;
+     const update = {$push: {books: {book: req.body.book, author:  req.body.author || null, publisher:  req.body.publisher || null, }}};
+     const userId = req.params.userId || req.user.id;
      var isLend = await bookController.CheckBookNotLend(req)
      if(isLend.length > 0){
 

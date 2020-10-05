@@ -17,9 +17,9 @@ const Book = model.Book;
 
    exports.getBook = async (req, res, next) => {
     try {
-     const bookId = req.params.bookId;
+     const bookId = req.params.bookId || req.body.id;
      let bookData = await Book.findById(bookId);
-     if (!bookData) return next(new Error('Book does not exist'));
+     if (!bookData) return res.status(401).json({ error: 'Book does not exist'});
       res.status(200).json({
       data: bookData
      });
@@ -56,8 +56,7 @@ const Book = model.Book;
    exports.updateBook = async (req, res, next) => {
     try {
      const update = req.body
-     const bookId = req.params.bookId;
-     console.log(update,"data",bookId)
+     const bookId = req.params.bookId || req.body.id;
      await Book.findByIdAndUpdate(bookId, update);
      let bookData = await Book.findById(bookId)
      res.status(200).json({
@@ -71,7 +70,7 @@ const Book = model.Book;
     
    exports.deleteBook = async (req, res, next) => {
     try {
-     const id = req.params.bookId;
+     const id = req.params.bookId || req.body.id;;
      await Book.findByIdAndDelete(id);
      res.status(200).json({
       data: null,
