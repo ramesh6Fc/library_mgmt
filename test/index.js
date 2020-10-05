@@ -100,7 +100,7 @@ test('List users without login', function (t) {
         t.end();
       });
   }); 
-// _____7.1
+// _____8
   test('Add another book by admin user', function (t) {
     request(app)
     .post('/book')
@@ -115,7 +115,7 @@ test('List users without login', function (t) {
       });
   }); 
   
-  // _____8
+  // _____9
   test('Update the existing book by admin user', function (t) {
     request(app)
     .put('/book')
@@ -128,7 +128,7 @@ test('List users without login', function (t) {
       });
   }); 
   
-// _____9
+// _____10
   test('Get the updated book while ago by admin user', function (t) {
     request(app)
     .get('/book')
@@ -142,7 +142,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____10
+  // _____11
   test('Delete a book by admin user', function (t) {
     request(app)
     .delete('/book')
@@ -158,7 +158,7 @@ test('List users without login', function (t) {
 
  // **********************************Normal user actions *****************************************
 
- // _____11
+ // _____12
  test('Login as a normal user', function (t) {
   request(app)
     .post('/login')
@@ -171,7 +171,7 @@ test('List users without login', function (t) {
     });
 }); 
 
-// _____12
+// _____13
   test('Signup as a normal user', function (t) {
     request(app)
       .post('/signup')
@@ -186,7 +186,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____13
+  // _____14
   test('List users by normal user token', function (t) {
     request(app)
     .get('/users')
@@ -199,7 +199,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____14
+  // _____15
   test('Login as a normal user', function (t) {
     request(app)
       .post('/login')
@@ -214,7 +214,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____15
+  // _____16
   test('View my profile', function (t) {
     request(app)
     .get('/user')
@@ -227,7 +227,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____16
+  // _____17
   test('List books by normal user token after login', function (t) {
     request(app)
     .get('/books')
@@ -240,7 +240,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____17
+  // _____18
   test('Add a book by normal user', function (t) {
     request(app)
     .post('/book')
@@ -254,7 +254,7 @@ test('List users without login', function (t) {
       });
   }); 
   
-  // _____18
+  // _____19
   test("Get a selected book's details by normal user", function (t) {
     request(app)
     .get('/book')
@@ -268,7 +268,7 @@ test('List users without login', function (t) {
       });
   }); 
   
-  // _____19
+  // _____20
   test('Update the existing book by normal user', function (t) {
     request(app)
     .put('/book/bookId')
@@ -281,7 +281,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____20
+  // _____21
   test('Delete a book by normal user', function (t) {
     request(app)
     .delete('/book/bookId')
@@ -294,7 +294,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____21
+  // _____22
   test('Lend a book by normal user', function (t) {
     request(app)
     .put('/lendBook')
@@ -308,7 +308,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____22
+  // _____23
   test('Try to lend already lended book by normal user', function (t) {
     request(app)
     .put('/lendBook')
@@ -322,7 +322,7 @@ test('List users without login', function (t) {
       });
   }); 
 
-  // _____23
+  // _____24
   test('Get my books', function (t) {
     request(app)
     .get('/mybooks')
