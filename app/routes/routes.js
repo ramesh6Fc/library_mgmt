@@ -12,6 +12,8 @@ router.post('/login', userController.login);
  
 //Users
 router.get('/user/:userId', userController.allowIfLoggedin, userController.getUser);
+
+router.get('/user', userController.allowIfLoggedin, userController.getUser);
  
 router.get('/users', userController.allowIfLoggedin, userController.grantAccess('readAny', 'profile'), userController.getUsers);
  
@@ -32,6 +34,7 @@ router.put('/book/:bookId', userController.allowIfLoggedin, userController.grant
  
 router.delete('/book/:bookId', userController.allowIfLoggedin, userController.grantAccess('deleteAny', 'book'), bookController.deleteBook);
  
+router.get('/mybooks', userController.allowIfLoggedin, userController.grantAccess('readOwn', 'books'), userController.getMybooks);
 
 // Authors
 router.post('/author', userController.allowIfLoggedin, userController.grantAccess('createAny', 'author'),authorController.createAuthor);

@@ -32,7 +32,7 @@ const Book = model.Book;
     try {
      const checkBook = {book:req.body.book, isLended:false};
      let bookData = await Book.find(checkBook);
-     if (!bookData) return next(new Error('Book does not available'));
+     if (!bookData) return next(new Error('The Book Not Available'));
      else return bookData;
     } catch (error) {
      return error;

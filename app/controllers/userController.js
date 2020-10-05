@@ -64,11 +64,25 @@ exports.login = async (req, res, next) => {
     
    exports.getUser = async (req, res, next) => {
     try {
-     const userId = req.params.userId;
+     const userId = req.params.userId || req.user._id;
      const user = await User.findById(userId);
      if (!user) return next(new Error('User does not exist'));
       res.status(200).json({
       data: user
+     });
+    } catch (error) {
+     next(error)
+    }
+   }
+
+     
+   exports.getMybooks = async (req, res, next) => {
+    try {
+     const userId = req.params.userId || req.user._id;
+     const user = await User.findById(userId);
+     if (!user) return next(new Error('User does not exist'));
+      res.status(200).json({
+      data: books
      });
     } catch (error) {
      next(error)
@@ -94,7 +108,7 @@ exports.login = async (req, res, next) => {
    exports.updateUserLend = async (req, res, next) => {
     try {
      const update = {$push: {books: {book: req.body.book, author:  req.body.author || null, publisher:  req.body.publisher || null, }}};req.body
-     const userId = req.params.userId;
+     const userId = req.params.userId || req.user._id;
      var isLend = await bookController.CheckBookNotLend(req)
      if(isLend.length > 0){
 
